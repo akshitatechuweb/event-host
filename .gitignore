@@ -1,90 +1,96 @@
-# Node modules
+# ==========================
+# Global Node Ignore
+# ==========================
 node_modules/
 **/node_modules/
 
-# Build and dist folders
+# ==========================
+# Build Output
+# ==========================
 dist/
 build/
 out/
 .next/
-.nuxt/
+.vercel/
 .cache/
-.temp/
 
+# ==========================
 # Logs
+# ==========================
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
 
-# Environment variables
+# ==========================
+# Env Files
+# ==========================
 .env
 .env.*
-!.env.example  # keep example env file if you have one
+!.env.example
 
-# Private and credentials files
-private/
-*private*
-credentials/
-*credentials*
-*.key
-*.pem
-
-# Local configuration
+# ==========================
+# Local Config Files
+# ==========================
 *.local
 *.DS_Store
-*.idea/
-*.vscode/
 *.suo
-*.ntvs*
 *.njsproj
 *.sln
-*.sw?
-*.bak
+.idea/
+.vscode/
 
-# Coverage and test results
+# ==========================
+# Testing & Coverage
+# ==========================
 coverage/
 .nyc_output/
 jest-html-reporters-*
 cypress/screenshots/
 cypress/videos/
 
-# OS / System files
+# ==========================
+# System Files
+# ==========================
 Thumbs.db
-.DS_Store
 ehthumbs.db
 Desktop.ini
 
-# TypeScript build artifacts
+# ==========================
+# TypeScript
+# ==========================
 *.tsbuildinfo
 
-# Temporary files
+# ==========================
+# Temporary Files
+# ==========================
 tmp/
 temp/
 
-# Lock files (optional, keep if you want consistent installs)
+# ==========================
+# Lock Files (OPTIONAL)
+# Uncomment if you DON'T want them in Git
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+# ==========================
 
-# Frontend specific (React/Vite/Next)
-client/dist/
-client/build/
+# ==========================
+# Frontend (Next.js)
+# ==========================
+client/.next/
+client/out/
 client/.env
 client/.env.*
-client/.vite/
-client/.next/
+client/node_modules/
 
-# Backend specific (Express/Node)
+# ==========================
+# Backend (Express/Node)
+# ==========================
 server/dist/
-server/.env
-server/.env.*
 server/uploads/
 server/tmp/
-
-# Optional: IDE/project files
-.idea/
-.vscode/
-*.code-workspace
+server/.env
+server/.env.*
+server/node_modules/
