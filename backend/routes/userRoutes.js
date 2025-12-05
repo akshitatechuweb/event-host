@@ -9,6 +9,7 @@ import {
   deactivateUser,
   requestHostUpgrade,
   approveHostUpgrade,
+  completeProfile
 } from "../controllers/userController.js";
 
 const router = express.Router();
@@ -40,5 +41,7 @@ router.get(
   requireRole("admin", "superadmin"),
   getUserById
 );
+
+router.post("/complete-profile", authMiddleware, completeProfile);
 
 export default router;

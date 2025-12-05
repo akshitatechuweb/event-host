@@ -197,3 +197,39 @@ export const deactivateUser = async (req, res) => {
       .json({ success: false, message: "Failed to deactivate user" });
   }
 };
+
+
+// ADD THIS FUNCTION in your userController.js
+
+export const completeProfile = async (req, res) => {
+  try {
+    const { name, email, city, gender } = req.body;
+
+    if (!name || !city || !gender) {
+      return res.status(400).json({
+        success: false,
+        message: "Name, City and Gender are required",
+      });
+    }
+
+    const user = await User.findById(req.user._id);
+    if (!user) return res.status(404).json({ success: false, message: "User not found" });
+
+    user.name = name.trim();
+    if (email?.trim()) user.email = email.trim();
+    user.city = city.trim();
+    user.gender = gender;
+
+    await user.save(); // pre-save hook auto sets isProfileComplete = true
+
+    return res.json({
+      success: true,
+      message: "Profile completed successfully!",
+      user,
+      isProfileComplete: true,
+    });
+  } catch (error) {
+    console.error("Complete profile error:", error);
+    res.status(500).json({ success: false, message: "Failed to save profile" });
+  }
+};
