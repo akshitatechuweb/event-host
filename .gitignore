@@ -94,3 +94,4 @@ server/tmp/
 server/.env
 server/.env.*
 server/node_modules/
+frontend
